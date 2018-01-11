@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://yilvermolinah.com/fotos/chuck-norris.png" />
+    <title>Chuck Norris</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href="offcanvas.css" rel="stylesheet">
+
+    <link rel="import" href="bower_components/chuck-norris-joke/chuck-norris-joke.html">
+    <link rel="import" href="bower_components/skeleton-framework/dist/skeleton.min.css">
+
+    <style>
+        .invisible {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .panel-photo {
+            width: 70%;
+            margin: 10px auto;
+            border-radius: 200px;
+            border: 1px dashed black;
+            background-color: white;
+        }
+
+        .panel-photo img {
+            width: 94%;
+            margin: 3%;
+            border-radius: 200px;
+        }
+
+        .tag {
+            margin: 10px 5px 10px 0px;
+            padding: 2px 4px;
+            border-radius: 5px;
+            color: white;
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        .separador {
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+
+<body onload="general()">
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <b>Chistes de Chuck Norris</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="activateTab('inicio')"><i class="fa fa-home"></i> Inicio <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active" id="tab-inicio" onclick="activateTab('inicio')"><i class="fa fa-home"></i> Inicio</a>
+                    <a href="#" class="list-group-item" id="tab-2005" onclick="activateTab('2005')"><i class="fa fa-calendar"></i> En 2005</a>
+                    <a href="#" class="list-group-item" id="tab-2006" onclick="activateTab('2006')"><i class="fa fa-calendar"></i> En 2006</a>
+                    <a href="#" class="list-group-item" id="tab-2014" onclick="activateTab('2014')"><i class="fa fa-calendar"></i> Hasta 2014</a>
+                    <a href="#" class="list-group-item" id="tab-hoy" onclick="activateTab('hoy')"><i class="fa fa-calendar"></i> Hoy</a>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-9">
+                <p class="float-right d-md-none">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+                </p>
+                <div class="jumbotron" id="panel-inicio">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="panel-photo">
+                                <img src="http://yilvermolinah.com/fotos/chuck-norris.png" alt="Foto" />
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <h1>Hola, soy Chuck Norris!</h1>
+                            <p>Actor estadounidense, campeón mundial de karate, exmilitar y fundador de una asociación de karate.</p>
+                            <br/>
+                            <span class="tag bg-primary">Y ahora... un chiste:</span>
+                            <h5></h5>
+                            <br/>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="panel-2005" class="panel panel-default invisible">
+                    <div class="panel-title">
+                        <h2>Resolución del ejercicio a la manera de 2005</h2>
+                        <hr/>
+                    </div>
+                    <div class="panel-body">
+                        <div class="jumbotron text-center">
+                            <div class="container">
+                                <p><a class="btn btn-primary" href="#" onclick="verChiste2005()"><i class="fa fa-refresh" aria-hidden="true"></i> Ver otro chiste de Chuck Norris</a></p>
+                                <h1 id="chiste-2005"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="panel-2006" class="panel panel-default invisible">
+                    <div class="panel-title">
+                        <h2>Resolución del ejercicio en 2006</h2>
+                        <hr/>
+                    </div>
+                    <div class="panel-body">
+                        <div class="jumbotron text-center">
+                            <div class="container">
+                                <p><a class="btn btn-warning" href="#" onclick="verChiste2006()"><i class="fa fa-refresh" aria-hidden="true"></i> Ver otro chiste de Chuck Norris</a></p>
+                                <h1 id="chiste-2006"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="panel-2014" class="panel panel-default invisible">
+                    <div class="panel-title">
+                        <h2>Resolución con plugin de jQuery (hasta ~2014)</h2>
+                        <hr/>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Cant. chistes:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="cantChistes" type="number" onkeyup="verChistes2014()" value="10" class="form-control" />
+                            </div>
+                        </div>
+                        <br/>
+                        <ul id="list-jokes">
+                        </ul>
+                        <hr/>
+                    </div>
+                </div>
+                <div id="panel-hoy" class="panel panel-default invisible">
+
+                    <div class="panel-title">
+                        <h2>Resolución del ejercicio con Web Components (presente)</h2>
+                        <hr/>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active" id="tab-tabla" onclick="verChistesComo('tabla')"><i class="fa fa-table"></i> Tabla</a>
+                                    <a href="#" class="list-group-item" id="tab-panel" onclick="verChistesComo('panel')"><i class="fa fa-list"></i> Paneles</a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Cant. chistes:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="cantChistesHoy" type="number" onkeyup="verChistesHoy()" value="10" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <label id="loadingTable"></label>
+                            </div>
+
+                        </div>
+                        <hr/>
+                        <div class="table-responsive">
+                            <table class="u-full-width table table-bordered table-striped" id="tabla-chistes">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Chiste</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row invisible" id="divs-chistes">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer text-center">
+                    <hr class="separador" />
+                    <h4>Máster Universitario en Ingeniería de Software y Sistemas Informáticos</h4>
+                    <h6>Universidad Internacional de la Rioja, España - 2018</h6>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.icndb.com/jquery.icndb.min.js"></script>
+
+    <script>
+        var activateTab = function (name) {
+            //array de los tabs que se han agregado a la página
+            var names = ["inicio", "2005", "2006", "2014", "hoy"];
+            for (var i = 0; i < names.length; i++) {
+                //con jQuery agregar o quitar los estilos a los tabs y paneles
+                if (name === names[i]) { // si es el tab que se ha activado, quitar el estilo de tab inactivo (si lo tiene) y agregar el estilo de tab activo.
+                    $("#tab-" + names[i]).addClass('active');
+
+                    $("#panel-" + names[i]).removeClass('invisible');
+                    $("#panel-" + names[i]).addClass('visible');
+
+                } else { // si no es el tab que se ha activado, quitar el estilo de tab activo (si lo tiene) y agregar el estilo de tab inactivo.
+                    $("#tab-" + names[i]).removeClass('active');
+
+                    $("#panel-" + names[i]).removeClass('visible');
+                    $("#panel-" + names[i]).addClass('invisible');
+                }
+            }
+        }
+    </script>
+
+    <script>
+        //Método general que se invoca al cargar la página, para hacer las respectivas peticiones.
+        var general = function () {
+            this.verChisteInicio();
+            this.verChiste2005();
+            this.verChiste2006();
+            this.verChistes2014();
+            this.verChistesHoy();
+        }
+    </script>
+
+
+    <script>
+        //Consultar un único chiste y asignarlo dentro del 
+        var verChisteInicio = function () {
+            $('h5').text("Cargando...");
+            $.icndb.getRandomJoke((response) => {
+                var textoChiste = response.joke;
+                $('h5').text("\"" + textoChiste + "\"");
+            });
+        }
+
+        //Consultar el chiste con ajax
+        var verChiste2005 = function () {
+            var h1s = document.getElementById('chiste-2005');
+            h1s.innerHTML = "Cargando...";
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('GET', 'http://api.icndb.com/jokes/random/', true);
+            xmlhttp.onreadystatechange = function () {
+                var textoChiste = JSON.parse(this.response).value.joke;
+                h1s.innerHTML = "\"" + textoChiste + "\"";
+            }
+            xmlhttp.send();
+        }
+
+        //consultar el chiste con jquery
+        var verChiste2006 = function () {
+            $('#chiste-2006').text("Cargando...");
+            $.get("http://api.icndb.com/jokes/random", (response) => {
+                var textoChiste = response.value.joke;
+                $('#chiste-2006').text("\"" + textoChiste + "\"");
+            })
+        }
+
+        //Consultar una lista de chistes con el plugin de jquery
+        var verChistes2014 = function () {
+            var cantText = $("#cantChistes").val();
+            var cant = cantText == "" ? 0 : parseInt(cantText);
+
+            $("#list-jokes").empty();
+            if (cant > 0) {
+                $.icndb.getRandomJokes({
+                    number: cant,
+                    success: (response) => {
+                        response.forEach(element => {
+                            $("#list-jokes").append('<li>' + "\"" + element.joke + "\"" +
+                                '</li>');
+                        });
+                    }
+                });
+            }
+        }
+
+        //Ver los chistes en una tabla o en una lista de paneles
+        var verChistesComo = function (tipo) {
+            if (tipo === 'tabla') {
+                $("#tab-tabla").addClass('active');
+                $("#tab-panel").removeClass('active');
+
+                $("#tabla-chistes").removeClass('invisible');
+                $("#tabla-chistes").addClass('visible');
+
+                $("#divs-chistes").removeClass('visible');
+                $("#divs-chistes").addClass('invisible');
+
+            } else if (tipo === 'panel') {
+                $("#tab-panel").addClass('active');
+                $("#tab-tabla").removeClass('active');
+
+                $("#tabla-chistes").removeClass('visible');
+                $("#tabla-chistes").addClass('invisible');
+
+                $("#divs-chistes").removeClass('invisible');
+                $("#divs-chistes").addClass('visible');
+            }
+        }
+
+        //Consultar chistes con web components
+        var verChistesHoy = function () {
+            var cantText = $("#cantChistesHoy").val();
+            var cant = cantText == "" ? 0 : parseInt(cantText);
+
+            $("#tabla-chistes > tbody").empty();
+            $("#divs-chistes").empty();
+
+            $('#loadingTable').text("Cargando...");
+
+            for (var i = 0; i < cant; i++) {
+                $("#tabla-chistes").append('<tr><td>' + (i + 1) +
+                    '</td><td><chuck-norris-joke></chuck-norris-joke></td></tr>');
+
+                $("#divs-chistes").append("<div class='col-md-12 panel panel-default'><h4>Chiste " + (i + 1) +
+                    "</h4><p><chuck-norris-joke></chuck-norris-joke></p></div><hr/>");
+
+            }
+            $('#loadingTable').text("");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!-- Copyright (C) 2014 Erik Ringsmuth - MIT license -->
+<script>
+(function() {
+  var HTMLChuckNorrisJokeElement = Object.create(HTMLAnchorElement.prototype);
+
+  HTMLChuckNorrisJokeElement.attachedCallback = function() {
+    var queryParameters = [];
+    if (this.hasAttribute('firstName')) {
+      queryParameters.push('firstName=' + this.getAttribute('firstName'));
+    }
+    if (this.hasAttribute('lastName')) {
+      queryParameters.push('lastName=' + this.getAttribute('lastName'));
+    }
+    if (this.hasAttribute('limitTo')) {
+      queryParameters.push('limitTo=[' + this.getAttribute('limitTo') + ']');
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://api.icndb.com/jokes/' + (this.getAttribute('joke-id') || 'random') + '?' + queryParameters.join('&'));
+    xhr.onload = function(response) {
+      var data = JSON.parse(response.currentTarget.response);
+      this.innerHTML = data.value.joke;
+      this.setAttribute('joke-id', data.value.id);
+      this.setAttribute('categories', data.value.categories);
+    }.bind(this);
+    xhr.send();
+  };
+
+  document.registerElement('chuck-norris-joke', { prototype: HTMLChuckNorrisJokeElement });
+})();
+</script>

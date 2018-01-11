@@ -1,0 +1,28 @@
+{
+  "name": "chuck-norris-joke",
+  "version": "1.2.0",
+  "authors": [
+    "Erik Ringsmuth <erik.ringsmuth@gmail.com>"
+  ],
+  "description": "icndb.com as a web component",
+  "main": "chuck-norris-joke.html",
+  "keywords": [
+    "web-components",
+    "chuck-norris"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/erikringsmuth/chuck-norris-joke",
+  "ignore": [
+    "**/.*"
+  ],
+  "_release": "1.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.0",
+    "commit": "1c20d117cfef07b160393f5c6e0a1c3c5d72da67"
+  },
+  "_source": "https://github.com/erikringsmuth/chuck-norris-joke.git",
+  "_target": "^1.2.0",
+  "_originalSource": "chuck-norris-joke",
+  "_direct": true
+}
